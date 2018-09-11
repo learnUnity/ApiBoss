@@ -6,10 +6,10 @@ namespace ApiBoss
     {
         protected UploadHandler uploadHandler;
 
-        public PayloadHandler SetData<T>(byte[] data) where T : PayloadHandler
+        public PayloadHandler SetData(byte[] data)
         {
             uploadHandler = new UploadHandlerRaw(data);
-            return (T) this;
+            return this;
         }
 
         public void OnHandlePayload(Request request)

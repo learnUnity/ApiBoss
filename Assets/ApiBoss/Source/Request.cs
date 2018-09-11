@@ -81,5 +81,10 @@ namespace ApiBoss
             HandleError();
             HandleResponse();
         }
+
+        public static Request Create()
+        {
+            return new Request();
+        }
     }
 }

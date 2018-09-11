@@ -11,8 +11,8 @@ namespace ApiBoss
         {
             Request
                 .Create()
-                .Url("https://jsonplaceholder.typicode.com/posts/1")
-                .OnComplete(JsonResponseHandler<Response>.Create(OnResponse))
+                .AddUrl("https://jsonplaceholder.typicode.com/posts/1")
+                .AddJsonResponse<Response>(OnResponse)
                 .Send();
         }
 

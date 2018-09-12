@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 namespace ApiBoss
 {
@@ -10,23 +7,16 @@ namespace ApiBoss
         public void Start()
         {
             Request
-                .Create()
-                .AddUrl("https://jsonplaceholder.typicode.com/posts/1")
-                .AddJsonResponse<Response>(OnResponse)
+                .Get("https://jsonplaceholder.typicode.com/posts/1")
+                .OnJsonResponse<JsonResponse>(OnResponse)
+                .OnError(Helpers.LogError)
+                .OnResponse(Helpers.LogResponse)
                 .Send();
         }
 
-        private void OnResponse(Response response)
+        private void OnResponse(JsonResponse response)
         {
             Debug.Log("Title:" + response.title);
-        }
-
-        public class Response
-        {
-            public int userId;
-            public int id;
-            public string title;
-            public string body;
         }
     }
 }

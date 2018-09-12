@@ -5,6 +5,7 @@ namespace ApiBoss
     {
         public static Request Send(this Request request)
         {
+            request.unityWebRequest.chunkedTransfer = false;
             RequestHandler.Instance.OnHandleRequest(request);
             return request;
         }

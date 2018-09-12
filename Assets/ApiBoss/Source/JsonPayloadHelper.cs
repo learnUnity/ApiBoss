@@ -6,7 +6,7 @@ namespace ApiBoss
 {
     public static class JsonPayloadHelper
     {
-        public static Request AddJsonPayload(this Request request, Object obj)
+        public static Request SetJsonPayload(this Request request, System.Object obj)
         {
             var json = JsonUtility.ToJson(obj);
             var data = Encoding.UTF8.GetBytes(json);

@@ -2,7 +2,7 @@
 
 namespace ApiBoss
 {
-    public class PostExample : MonoBehaviour 
+    public class PutExample : MonoBehaviour 
     {
         public void Start()
         {
@@ -10,11 +10,12 @@ namespace ApiBoss
             {
                 title = "foo",
                 body = "bar",
-                userId = 1
+                userId = 1,
+                id = 2
             };
             
             Request
-                .Post("https://jsonplaceholder.typicode.com/posts")
+                .Put("https://jsonplaceholder.typicode.com/posts/1")
                 .SetJsonPayload(payload)
                 .OnJsonResponse<JsonResponse>(OnResponse)
                 .OnError(Helpers.LogError)

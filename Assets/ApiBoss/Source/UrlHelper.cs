@@ -2,7 +2,7 @@
 {
     public static class UrlHelper
     {
-        public static Request AddUrl(this Request request, string url)
+        public static Request SetUrl(this Request request, string url)
         {
             request.unityWebRequest.url = url;
             return request;

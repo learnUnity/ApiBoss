@@ -3,16 +3,17 @@ using UnityEngine;
 using UnityEngine.Networking;
 namespace ApiBoss
 {
-    public static class JsonResponseHelper
+    public static class ResponseHelper
     {
-        public static Request OnJsonResponse<T>(this Request request, Action<T> onResponse)
+        public delegate void OnResponseDelegate(int statusCode, string message);
+        
+        public static Request OnResponse(this Request request, OnResponseDelegate onResponse)
         {
             request.unityWebRequest.downloadHandler = new DownloadHandlerBuffer();
             //    Tie into onComplete
             request.onComplete += req =>
             {
-                var obj = JsonUtility.FromJson<T>(req.unityWebRequest.downloadHandler.text);
-                onResponse(obj);
+                onResponse((int)req.unityWebRequest.responseCode, req.unityWebRequest.downloadHandler.text);
             };
             return request;
         }

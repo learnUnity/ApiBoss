@@ -1,5 +1,7 @@
 # API Boss
 
+[Get downloadable unity package here](https://github.com/masterprompt/ApiBoss/raw/master/Assets/Packages/)
+
 #### Unity API Library
 
 Simplifies using [UnityWebRequest](https://docs.unity3d.com/ScriptReference/Networking.UnityWebRequest.html) by providing a [fluent](https://en.wikipedia.org/wiki/Fluent_interface) interface for common API client needs.  Some basic examples are included in the example scene which uses a [Testing API](https://github.com/typicode/jsonplaceholder#how-to).
